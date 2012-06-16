@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vidio Slideshow Creator</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/960_12_col.css">
+		<link rel="stylesheet" href="css/text.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-1.7.2.js"></script>
+    	<script src="js/slideshow.js"></script>
+    	<script type="text/javascript" src="js/jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js"></script>
+
+	</head>
+	
+	<body>
+		<div id="wrapper">
+
+			<div id="container" class="container_12">
+				<header>
+					<h1>Vidio</h1>
+					<nav>
+                    	<ul id="mainMenu">
+                        	<li><a href="myprojects.html">My Projects |</a></li>
+                        	<li><a href="selectpictures.html">New Show |</a></li>
+                        	<li><a href="index.html">Log Out</a></li>
+                        </ul>
+                	</nav>  
+				</header>
+
+				<form><input id="projectName" type="text" placeholder="Name your project"/></form>
+
+
+				<div class="showContainer">
+
+					<div class="grid_8 box alpha" id="photoAlbums">
+						<h2>Search and Select Photos</h2>
+						<input id="searchFlickr" type="text" autofocus="autofocus" placeholder="search for photos"></input>
+        				<input id="searchFlickrButton" type="button" value="Search Flickr"></input>
+						<ul id = "new_images">
+							
+						</ul>
+					</div><!--end photoAlbums-->
+
+					<div class="grid_4 omega box" id = "projectPictures">
+						<div id = "projectPicturesContainer">
+							<h2>Project Pictures</h2>
+							<ul id = "listOfPhotos">
+
+							</ul>
+						</div><!--end projectPicturesContainer-->
+						<div class = "clear"></div>
+						<div class = "blueButton" id = "createShowButton"></div>
+					</div><!--end photoBank-->
+					<div class="clear"></div>
+
+					<div id="popup_box">   
+						<ul id = "popUpLinks">							 						    
+						     <li><a href = "#" id = 'playButton'>Play</a></li>
+						     <li><a href = "#" id = "popupBoxClose">Close</a></li>
+						</ul>
+					    <div id = "ul"></div>
+					</div>
+
+				</div><!--end showContainer-->
+
+				<div class = "blueButton" id="selectButton"></div>
+
+			</div><!--end container-->
+
+			<div class="clear"></div>
+
+			<footer>
+				<ul id="bottomNav">
+					<li>&copy Lauren Gundrum 2012 |</li>
+					<li><a href="mailto:lauren.gundrum@gmail.com">Email me |</a></li>
+					<li><a href="#top">Top of Page |</a></li>
+				</ul><!--bottomNav-->
+			</footer>
+
+		</div><!--end wrapper-->
+
+	</body>
+</html>
