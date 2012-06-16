@@ -47,8 +47,10 @@
 					var albums = response.data;
 					for (var i=0; i<albums.length; i++) {
 						var coverID = albums[i]["cover_photo"];
+						console.log(coverID);
 						var albumID = albums[i]["id"];
 						FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
+							console.log(coverID);
 							var currentAlbum = new Album(coverID, albumID, response.picture);
 							arrayOfAlbums.push(currentAlbum);
 							console.log(currentAlbum.coverURL);
