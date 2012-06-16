@@ -18,6 +18,7 @@
 
 		<div id="fb-root"></div>
 	    <script>
+	    	var userID = "";
 	        window.fbAsyncInit = function() {
 	          FB.init({
 	            appId      : '364666446921388',
@@ -28,7 +29,19 @@
 	          });
 
 
-	          FB.api('/me/albums', function(response) {
+			function processLogInStatus(response) {	
+			    if (response.authResponse) {
+			      userID = response.authResponse.accessToken;
+
+			    } else {
+			      //user is not connected to your app or logged out, redirect them to login page
+			      window.location.replace("/");
+			    }
+			 }
+
+	          FB.getLoginStatus(processLogInStatus);
+
+	          FB.api('/me/albums?access_token=' + userID, function(response) {
 	          	console.log(response);
 	          });
 	        };

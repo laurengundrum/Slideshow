@@ -43,23 +43,15 @@
 			            oauth      : true,
 			          });
 
-		          	function updateButton(response) {
-					    var button = $('.fb-login-button');
-						console.log(response);	
+		          	function redirectOnLogIn(response) {
 					    if (response.authResponse) {
-					      //user is already logged in and connected
-					      console.log("user logged in successfully!!!!!");
-						  console.log(response.authResponse.accessToken);
-					      //window.location.replace("selectpictures/");
+					      window.location.replace("selectpictures/");
 
-					    } else {
-					      //user is not connected to your app or logged out
-						  console.log("user is not logged in");
-					    }
+					    } 
 					 }
 
-			          FB.getLoginStatus(updateButton);
-					  FB.Event.subscribe('auth.statusChange', updateButton);
+			          FB.getLoginStatus(redirectOnLogIn);
+					  FB.Event.subscribe('auth.statusChange', redirectOnLogIn);
 
  				};
 
