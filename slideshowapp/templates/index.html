@@ -53,24 +53,9 @@
 
 					    } else {
 					      //user is not connected to your app or logged out
-					      button.innerHTML = 'Login';
-					      button.onclick = function() {
-					        FB.login(function(response) {
-							  if (response.authResponse) {
-						            FB.api('/me', function(response) {
-							      var userInfo = document.getElementById('user-info');
-							      userInfo.innerHTML = 
-						                '<img src="https://graph.facebook.com/' 
-							        + response.id + '/picture" style="margin-right:5px"/>' 
-							        + response.name;
-							    });	   
-					          } else {
-					            //user cancelled login or did not grant authorization
-					          }
-					        }, {scope:'email'});  	
-					      }
+						  console.log("user is not logged in");
 					    }
-					  }
+					 }
 
 			          FB.getLoginStatus(updateButton);
 					  FB.Event.subscribe('auth.statusChange', updateButton);

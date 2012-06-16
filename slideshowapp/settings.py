@@ -1,7 +1,7 @@
 # Django settings for slideshowapp project.
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
