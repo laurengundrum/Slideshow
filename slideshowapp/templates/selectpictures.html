@@ -45,10 +45,11 @@
 	          	  	for(album in response.data){
 						var coverID = album.cover_photo;
 						var albumID = album.id;
+						console.log(coverID);
 						FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
 							var currentAlbum = new Album(coverID, albumID, response.picture);
 		       				arrayOfAlbums.push(currentAlbum);
-							console.log(arrayOfAlbums[arrayOfAlbums.length-1].coverURL);
+							console.log(currentAlbum.coverURL);
 						});
 					}
 				  });
