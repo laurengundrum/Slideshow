@@ -41,10 +41,14 @@
 	          		When clicked, query facebook for photos in album and generate popupbox with photos
 	          		*/
 	          		for (var i=0; i<response.data.length; i++) {
-	          			var currentAlbum = new Album(response.data[i].cover_photo, response.data[i].id)
-	          			arrayOfAlbums.push(currentAlbum);
+						var coverID = response.data[i].cover_photo;
+						var albumID = response.data[i].id;
+						FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
+							var currentAlbum = new Album(coverID, albumID, response.picture);
+		          			arrayOfAlbums.push(currentAlbum);
+							console.log(arrayOfAlbums);
+						};
 	          		}
-	          		console.log(arrayOfAlbums);
 	          	  });
 
 			    } else {
@@ -64,14 +68,10 @@
 				document.getElementById('fb-root').appendChild(e);
 			}());
 
-			function Album(coverID, albumID) {
+			function Album(coverID, albumID, coverURL) {
 				$(this).coverID = coverID;
 				$(this).albumID = albumID;
-				$(this).coverURL = function({
-					FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
-						return response.picture;
-					});
-				});
+				$(this).coverURL = coverURL;
 			};
 
 	    </script>
