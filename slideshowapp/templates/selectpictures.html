@@ -45,7 +45,7 @@
 			      FB.api('/me/albums?access_token=' + userID, function(response) {
 					var albums = response.data;
 					for (var i=0; i<albums.length; i++) {
-						console.log(albums[i].cover_url);
+						console.log(albums[i]);
 					}
 				  });
 
