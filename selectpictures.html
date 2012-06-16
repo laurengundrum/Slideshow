@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/jquery-1.7.2.js"></script>
     	<script src="js/slideshow.js"></script>
-    	<script type="text/javascript" src="js/jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js"></script>
+    	<script src="js/jquery-ui-1.8.20.custom.min.js"></script>
 
 	</head>
 	
@@ -20,9 +20,9 @@
 					<h1>Vidio</h1>
 					<nav>
                     	<ul id="mainMenu">
-                        	<li><a href="myprojects.html">My Projects |</a></li>
-                        	<li><a href="selectpictures.html">New Show |</a></li>
-                        	<li><a href="index.html">Log Out</a></li>
+                    		<li><a id = "newShow" href="selectpictures.html">New Show |</a></li>
+                        	<!--<li><a href="myprojects.html">My Projects |</a></li>
+                        	<li><a href="index.html">Log Out</a></li>  These will be used later, when I add the ability to log-in with Facebook and save shows--> 
                         </ul>
                 	</nav>  
 				</header>
@@ -31,39 +31,63 @@
 
 
 				<div class="showContainer">
-
-					<div class="grid_8 box alpha" id="photoAlbums">
-						<h2>Search and Select Photos</h2>
-						<input id="searchFlickr" type="text" autofocus="autofocus" placeholder="search for photos"></input>
-        				<input id="searchFlickrButton" type="button" value="Search Flickr"></input>
-						<ul id = "new_images">
-							
+					<div id = "tabs">
+						<ul id = "tabsButtons">
+							<li id ="selectButton" class = "selected">1) Search</li>
+							<li id = "createShowButton" class="notSelected">2) Create</li>
 						</ul>
-					</div><!--end photoAlbums-->
+						<div class = "clear"></div>
+						<div class="grid_8 box alpha" id="photoAlbums">
+							<h2>Search and Select Photos</h2>
+							<div id = "dialogSearch" class = "dialogBox" >
+								<p>This is where you'll choose pictures to use in your show. Search for pictures, then click on the ones you like and they'll be saved in Project Pictures. When you're done, click on the Create tab to arrange them.</p>
+							</div>
+							<input id="searchFlickr" type="text" placeholder="search for photos"></input>
+	        				<input id="searchFlickrButton" type="button" value="Search Flickr"></input>
+							<ul id = "new_images">
+								
+							</ul>
+							<div class="clear"></div>
 
-					<div class="grid_4 omega box" id = "projectPictures">
-						<div id = "projectPicturesContainer">
-							<h2>Project Pictures</h2>
-							<ul id = "listOfPhotos">
+						</div><!--end photoAlbums-->
+
+						<div class='grid_8 alpha box hidden' id='createShow'>
+							<h2>Create Show</h2> 
+							<div id = "dialogCreate" class = "dialogBox" >
+								<p>This is where you'll create your show. Click on the photos from Project Pictures that you want to use in your show, and they'll appear here in order.</p>
+							</div>
+							<ul id = 'showPictures'>
 
 							</ul>
-						</div><!--end projectPicturesContainer-->
+						</div><!--end createShow-->
+					</div><!--end tabs-->
+
+					<div class="grid_4 omega box" id = "projectPictures">
+						<h2>Project Pictures</h2>
+						<ul id = "listOfPhotos">
+
+						</ul>
 						<div class = "clear"></div>
-						<div class = "blueButton" id = "createShowButton"></div>
 					</div><!--end photoBank-->
 					<div class="clear"></div>
 
 					<div id="popup_box">   
-						<ul id = "popUpLinks">							 						    
+					    <div id = "popUpPics"></div>
+					    <ul id = "popUpLinks">							 						    
 						     <li><a href = "#" id = 'playButton'>Play</a></li>
 						     <li><a href = "#" id = "popupBoxClose">Close</a></li>
 						</ul>
-					    <div id = "ul"></div>
 					</div>
 
 				</div><!--end showContainer-->
 
-				<div class = "blueButton" id="selectButton"></div>
+			<!--<ul id = "blueButton">
+				<li id="selectButton"></li>
+				<li id = "createShowButton"></li>
+				<li id = 'viewButton'></li>
+			</ul> -->
+
+			<div id = "viewButton" class="hidden"></div>
 
 			</div><!--end container-->
 

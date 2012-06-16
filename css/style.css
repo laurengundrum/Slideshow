@@ -120,6 +120,10 @@ nav ul li a:hover {
 	margin: 5px;
 }
 
+.ui-dialog-titlebar {
+	background: orange;
+	text-align: center;
+}
 
 /*----------------------------------------------------------------------------- 
 INDEX
@@ -163,13 +167,68 @@ input#projectName {
 	margin-bottom: 5px;
 }
 
+.dialogBox {
+	border:solid 1px #DEDEDE; 
+	background:#EFEFEF;
+	color:#222222;
+	padding:4px;
+	text-align:center;
+}
+
+
 /*----------------------------------------------------------------------------- 
-BOTTOM NAV BUTTONS (SPRITES)
+TABS
 -----------------------------------------------------------------------------*/
-.blueButton {
-	margin: 0 auto;
+
+#tabs ul#tabsButtons {
+	width: 300px;
+	height: 40px;
+	float: left;
+	margin-bottom: 2px;
+}
+
+#tabs ul#tabsButtons li {
+	list-style: none;
+	float: left;
+	height: 35px;
+	width: 80px;
+	color: #49708A;
+	margin-left: 1px;
+	padding-left: 13px;
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.selected {
+	background: #D0E0EB;
+	border: solid 1px #D0E0EB;
+	border-radius: 5px;
+}
+
+.notSelected {
+	background: #88ABC2;
+	border: solid 1px #88ABC2;
+	margin-bottom: 2px;
+	border-bottom: solid 2px #EBF7F8;
+	border-radius: 5px;
+}
+
+/*----------------------------------------------------------------------------- 
+These stylings are for if I decide to make the tabs into buttons instead.
+
+BOTTOM NAV BUTTONS (SPRITES)
+
+ul#blueButton {
+	width: 350px;
 	height: 52px;
-	background: url("../images/sprites.png");
+	margin: 0 auto;
+}
+
+#blueButton li {
+	list-style: none;
+	float: left;
+	height: 52px;
 }
 
 #goButton {
@@ -177,36 +236,42 @@ BOTTOM NAV BUTTONS (SPRITES)
 	background-position: -263px 0;
 }
 
-	/*sprites*/
+	/*sprites
 
 		#selectButton {
-			margin: 0 auto;
-			width: 88px;
-			height: 52px;
 			background: url("../images/sprites.png");
+			width: 88px;
 			background-position: 0 0;
 		}
 
-		#createShowButton {			
+		#createShowButton {	
+			margin-left: 5px;
+			background: url("../images/sprites.png");		
 			width: 96px;
 			background-position: -89px 0;
-		}
+		}*/
 
 		#viewButton {
+			margin: 0 auto;
+			top: 370px;
+			background: url("../images/sprites.png");
 			width: 80px;
 			height: 52px;
 			background-position: -185px 0;
+
 		}
 
 .active {
 	outline: solid 3px #88ABC2;
 }
+-----------------------------------------------------------------------------
 
 /*----------------------------------------------------------------------------- 
 CREATE SHOW DIV
 -----------------------------------------------------------------------------*/
-#createShow {
+#createShow #showPicturesListContainer {
 	overflow: auto;
+	height: 360px;
 }
 
 #projectPictures {
@@ -313,15 +378,14 @@ ul#dates li a#selected {
 Pop Up Box to view show
 -----------------------------------------------------------------------------*/
 #popup_box { 
-    display:none; /* Hide the DIV */
-    position:fixed;  
-    _position:absolute; /* hack for internet explorer 6 */  
-    height:500px;  
+    display:none; 
+    position:absolute;  
+    _position:absolute;  
+    height:400px;  
     width:850px;  
     
     background: white;
 
-    left: 300px;
     top: 50px;
     z-index:100; /* Layering */
     margin-left: 40px;  
@@ -336,14 +400,26 @@ Pop Up Box to view show
     
 }
 
-	#popup_box #ul li {
+	#popup_box #popUpPics li {
 		list-style: none;
-		width: 100%;
+		width: 220px;
+		margin: 0 auto;
+		margin-top: 50px;
 	}
 
-	#popup_box #ul img {
+	#popup_box #popUpPics img {
 		display: block;
 		margin: 0 auto;
+		width: 200px;
+		height: 200px;
+	}
+
+	#popup_box #popupTitle {
+		width: 100px;
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		color: #49708A;
 	}
 
 	.hidden {
@@ -359,6 +435,9 @@ Pop Up Box to view show
 	
 	#popUpLinks {
 		width: 200px;
+		position: absolute;
+		top: 350px;
+		left: 345px;
 	}
 	
 	#popUpLinks li {
