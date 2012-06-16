@@ -48,7 +48,7 @@
 						FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
 							var currentAlbum = new Album(coverID, albumID, response.picture);
 		       				arrayOfAlbums.push(currentAlbum);
-							console.log(arrayOfAlbums);
+							console.log(arrayOfAlbums[arrayOfAlbums.length-1].coverURL);
 						});
 					}
 				  });
