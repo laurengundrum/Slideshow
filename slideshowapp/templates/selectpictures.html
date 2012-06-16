@@ -43,10 +43,16 @@
 				  console.log("user is logged in");
 			      userID = response.authResponse.accessToken;
 			      FB.api('/me/albums?access_token=' + userID, function(response) {
+					console.log(response);
 					var albums = response.data;
 					for (var i=0; i<albums.length; i++) {
-						console.log(albums[i]);
-						console.log(albums[i]["cover_photo"]);
+						var coverID = albums[i]["cover_photo"];
+						var albumID = albums[i]["id"];
+						FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
+							var currentAlbum = new Album(coverID, albumID, response.picture);
+							arrayOfAlbums.push(currentAlbum);
+							console.log(currentAlbum.coverURL);
+						});
 					}
 				  });
 
@@ -58,14 +64,6 @@
 			
 	        FB.getLoginStatus(processLogInStatus);
 	     	};
-
-/*var coverID, albumID = album.cover_photo, album.ID;
-console.log(coverID);
-FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
-	var currentAlbum = new Album(coverID, albumID, response.picture);
-	arrayOfAlbums.push(currentAlbum);
-	console.log(currentAlbum.coverURL);
-});*/
 			
 			(function() {
 				var e = document.createElement('script'); e.async = true;
