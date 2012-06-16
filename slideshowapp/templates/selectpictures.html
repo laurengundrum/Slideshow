@@ -39,6 +39,7 @@
 	       		When clicked, query facebook for photos in album and generate popupbox with photos
 	       		*/	
 			    if (response.authResponse) {
+				  console.log(response.authResponse);
 				  console.log("user is logged in");
 			      userID = response.authResponse.accessToken;
 			      FB.api('/me/albums?access_token=' + userID, function(response) {
