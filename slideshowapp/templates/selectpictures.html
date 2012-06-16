@@ -20,6 +20,13 @@
 	    <script>
 	    	var userID = "";
 	    	arrayOfAlbums = [];
+			
+			function Album(coverID, albumID, coverURL) {
+				this.coverID = coverID;
+				this.albumID = albumID;
+				this.coverURL = coverURL;
+			};
+			
 	        window.fbAsyncInit = function() {
 	          FB.init({
 	            appId      : '364666446921388',
@@ -73,12 +80,6 @@
 				+ '//connect.facebook.net/en_US/all.js';
 				document.getElementById('fb-root').appendChild(e);
 			}());
-
-			function Album(coverID, albumID, coverURL) {
-				$(this).coverID = coverID;
-				$(this).albumID = albumID;
-				$(this).coverURL = coverURL;
-			};
 	    </script>
 
 		<div id="wrapper">
