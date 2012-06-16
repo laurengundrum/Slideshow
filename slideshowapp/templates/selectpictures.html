@@ -59,7 +59,9 @@
 			 };
 			
 	        FB.getLoginStatus(processLogInStatus);
-	     	(function() {
+	     	};
+	
+			(function() {
 				var e = document.createElement('script'); e.async = true;
 				e.src = document.location.protocol 
 				+ '//connect.facebook.net/en_US/all.js';
@@ -71,7 +73,6 @@
 				$(this).albumID = albumID;
 				$(this).coverURL = coverURL;
 			};
-		};
 	    </script>
 
 		<div id="wrapper">
