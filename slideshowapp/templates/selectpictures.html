@@ -32,6 +32,9 @@
 			function processLogInStatus(response) {	
 			    if (response.authResponse) {
 			      userID = response.authResponse.accessToken;
+			      FB.api('/me/albums?access_token=' + userID, function(response) {
+	          		console.log(response);
+	          	  });
 
 			    } else {
 			      //user is not connected to your app or logged out, redirect them to login page
@@ -41,9 +44,6 @@
 
 	          FB.getLoginStatus(processLogInStatus);
 
-	          FB.api('/me/albums?access_token=' + userID, function(response) {
-	          	console.log(response);
-	          });
 	        };
 
 	     	(function() {
