@@ -19,6 +19,7 @@
 		<div id="fb-root"></div>
 	    <script>
 	    	var userID = "";
+	    	arrayOfAlbums = [];
 	        window.fbAsyncInit = function() {
 	          FB.init({
 	            appId      : '364666446921388',
@@ -33,14 +34,24 @@
 			    if (response.authResponse) {
 			      userID = response.authResponse.accessToken;
 			      FB.api('/me/albums?access_token=' + userID, function(response) {
-	          		console.log(response);
+	          		/*console.log(response);
+	          		loop through response
+	          		Store cover_photo id and album id (id)
+	          		request and display cover_photo
+	          		When clicked, query facebook for photos in album and generate popupbox with photos
+	          		*/
+	          		for (var i=0; i<response.data.length; i++) {
+	          			var currentAlbum = new Album(response.data[i].cover_photo, response.data[i].id)
+	          			arrayOfAlbums.push(currentAlbum);
+	          		}
+	          		console.log(arrayOfAlbums
 	          	  });
 
 			    } else {
 			      //user is not connected to your app or logged out, redirect them to login page
 			      window.location.replace("/");
 			    }
-			 }
+			 };
 
 	          FB.getLoginStatus(processLogInStatus);
 
@@ -52,6 +63,16 @@
 				+ '//connect.facebook.net/en_US/all.js';
 				document.getElementById('fb-root').appendChild(e);
 			}());
+
+			function Album(coverID, albumID) {
+				$(this).coverID = coverID;
+				$(this).albumID = albumID;
+				$(this).coverURL = function({
+					FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
+						return response.picture;
+					});
+				});
+			};
 
 	    </script>
 
