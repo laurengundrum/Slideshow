@@ -45,7 +45,7 @@
 			      FB.api('/me/albums?access_token=' + userID, function(response) {
 					console.log(response);
 	          	  	for(album in response.data){
-						console.log(album.id);
+						console.log(album);
 						var coverID = album.cover_photo;
 						var albumID = album.id;
 						console.log(coverID);
