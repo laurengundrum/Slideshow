@@ -102,6 +102,8 @@ $(function() {
 			}
 		);*/
 
+	/*Facebook log-in click event*/
+
 });
 
 var createShowList = [];
