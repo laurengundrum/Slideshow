@@ -48,18 +48,7 @@
 						console.log(response);	
 					    if (response.authResponse) {
 					      //user is already logged in and connected
-					      var userInfo = document.getElementById('user-info');
-					      FB.api('/me', function(response) {
-					        userInfo.innerHTML = '<img src="https://graph.facebook.com/' 
-						  + response.id + '/picture">' + response.name;
-					        button.innerHTML = 'Logout';
-					      });
-					      button.onclick = function() {
-					        FB.logout(function(response) {
-					          var userInfo = document.getElementById('user-info');
-					          userInfo.innerHTML="";
-							});
-					      };
+					      console.log("user logged in successfully!!!!!");
 
 					    } else {
 					      //user is not connected to your app or logged out
