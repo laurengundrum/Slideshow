@@ -15,9 +15,30 @@
 	</head>
 	
 	<body>
+
+		<div id="fb-root"></div>
+	    <script>
+	        window.fbAsyncInit = function() {
+	          FB.init({
+	            appId      : '364666446921388',
+	            status     : true, 
+	            cookie     : true,
+	            xfbml      : true,
+	            oauth      : true,
+	          });
+
+
+	          FB.api('/me/albums', function(response) {
+	          	console.log(response);
+	          });
+	        };
+
+	    </script>
+
 		<div id="wrapper">
 
 			<div id="container" class="container_12">
+
 				<header>
 					<h1>Vidio</h1>
 					<nav>

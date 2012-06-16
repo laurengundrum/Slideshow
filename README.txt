@@ -20,6 +20,7 @@ on "play" to see your show.
 5. The "New Show" link resets everything so you can create a new show. 
 
 Next steps:
+- move script stuff from html to js files
 - Enable Facebook log-in
 - Enable saving shows and create a "My Shows" link that takes you to a list where you can view or edit
 - Enable drag and drop, sorting of pictures in the Create div
@@ -27,3 +28,5 @@ Next steps:
 - Enable uploading music to be used
 - Import song lyrics in the Create div. Position photos next to the lyrics so you can ensure they appear
 precisely where you want.
+
+young-dusk-2783.herokuapp.com
