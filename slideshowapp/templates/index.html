@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vidio Slideshow Creator</title>
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/960_12_col.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/text.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+		<script src="{{ STATIC_URL }}js/jquery-1.7.2.js"></script>
+    	<script src="{{ STATIC_URL }}js/slideshow.js"></script>
+    	<script src="{{ STATIC_URL }}js/jquery-ui-1.8.20.custom.min.js"></script>
+	</head>
+	
+	<body>
+		<div id="wrapper">
+
+			<div id="container" class="container_12">
+				<header>
+					<h1>Vidio</h1>
+				</header>	
+
+				<div class="grid_5 alpha" id="demo">
+					<iframe width="350" height="300" src="http://www.youtube.com/embed/OelsPxv6A44" id="sampleshow" ></iframe>
+				</div>
+
+				<div class="grid_6 omega" id="summary">
+					<h2>Create awesome slideshows!</h2>
+					<ul>
+						<li>Add pictures from Flickr</li>
+						<li>Arrange and reposition pictures</li>
+						<li>View show</li>
+					</ul>
+					
+				<!--Facebook login-->	
+				<div id="fb-root"></div>
+			      <script>
+			        window.fbAsyncInit = function() {
+			          FB.init({
+			            appId      : 'YOUR_APP_ID',
+			            status     : true, 
+			            cookie     : true,
+			            xfbml      : true,
+			            oauth      : true,
+			          });
+			        };
+			        (function(d){
+			           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+			           js = d.createElement('script'); js.id = id; js.async = true;
+			           js.src = "//connect.facebook.net/en_US/all.js";
+			           d.getElementsByTagName('head')[0].appendChild(js);
+			         }(document));
+			      </script>
+			      <div class="fb-login-button">Login with Facebook</div>
+
+				</div>
+
+			</div><!--end container-->
+
+			<footer>
+				<ul id="bottomNav">
+					<li>&copy Lauren Gundrum 2012 |</li>
+					<li><a href="mailto:lauren.gundrum@gmail.com">Email me |</a></li>
+					<li><a href="#top">Top of Page |</a></li>
+				</ul><!--bottomNav-->
+			</footer>
+
+		</div><!--end wrapper-->
+
+	</body>
+</html>

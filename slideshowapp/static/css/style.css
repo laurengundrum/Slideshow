@@ -137,6 +137,12 @@ INDEX
 	color: #49708A;;
 }
 
+.fb-login-button {
+	background: url('../images/facebook-login.png') no-repeat;
+	width: 250px;
+	height: 35px;
+}
+
 
 /*----------------------------------------------------------------------------- 
 SELECT PICTURES
