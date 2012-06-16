@@ -73,7 +73,7 @@ STATIC_ROOT = ''
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 if not DEBUG:
-    STATIC_URL = 'http://s3.amazonaws.com/oystersplashpage/'
+    STATIC_URL = 'http://s3.amazonaws.com/slideshowapp/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
