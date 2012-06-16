@@ -42,6 +42,11 @@
 			            xfbml      : true,
 			            oauth      : true,
 			          });
+
+			          FB.Event.subscribe('auth.authResponseChange', function(response) {
+							  alert('The status of the session is: ' + response.status);
+							});
+			          
 			        };
 			        (function(d){
 			           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
