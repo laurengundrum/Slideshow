@@ -21,6 +21,7 @@ on "play" to see your show.
 
 Next steps:
 - move script stuff from html to js files
+- change dialog boxes to popups onhover of the tabs
 - Enable Facebook log-in
 - Enable saving shows and create a "My Shows" link that takes you to a list where you can view or edit
 - Enable drag and drop, sorting of pictures in the Create div
