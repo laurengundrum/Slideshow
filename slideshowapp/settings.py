@@ -1,8 +1,8 @@
 # Django settings for slideshowapp project.
 import os
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
@@ -58,6 +58,11 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = ''
 
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = 'AKIAJ33BMUM4B6DI25OA'
+AWS_SECRET_ACCESS_KEY = 'Oax7+81ilHpily4wgH8+HPTT/j+mWAgQd1zosj+U'
+AWS_STORAGE_BUCKET_NAME = 'slideshowapp'
+
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
@@ -67,6 +72,8 @@ STATIC_ROOT = ''
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
+if not DEBUG:
+    STATIC_URL = 'http://s3.amazonaws.com/oystersplashpage/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -124,6 +131,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 	'gunicorn',
 	'slideshowapp',
+	'storages',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
