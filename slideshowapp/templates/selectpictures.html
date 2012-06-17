@@ -44,6 +44,8 @@
 	       		Store cover_photo id and album id (id)
 	       		request and display cover_photo
 	       		When clicked, query facebook for photos in album and generate popupbox with photos
+	       			to get all the photos in the albun, do graph.facebook.com/album id/photos
+	       			To get the actual picture, graph.facebook.com/album id/picture (img src = "graph.facebook.com/album id/picture?access_token=" + userID)
 	       		*/	
 			    if (response.authResponse) {
 				  console.log(response.authResponse);
@@ -52,15 +54,14 @@
 			      FB.api('/me/albums?access_token=' + userID, function(response) {
 					console.log(response);
 					var albums = response.data;
+					var imagesList = '';
 					for (var i=0; i<albums.length; i++) {
-						var coverID = albums[i]["cover_photo"];
+	
 						var albumID = albums[i]["id"];
-						FB.api('/'+ coverID + '?access_token=' + userID, function(response) {
-							var currentAlbum = new Album(coverID, albumID, response.picture);
-							arrayOfAlbums.push(currentAlbum);
-							console.log(currentAlbum.coverURL);
-						});
+						var img = "<img class = 'image' src = 'graph.facebook.com/' + albumID + '/picture?access_token=' + userID + />"
+						imagesList += "<li>" + img + "</li>";
 					}
+					$("#new_images").append(imagesList);
 				  });
 
 			    } else {
@@ -68,7 +69,7 @@
 			      window.location.replace("/");
 			    }
 			 };
-			
+
 	        FB.getLoginStatus(processLogInStatus);
 	     	};
 			
